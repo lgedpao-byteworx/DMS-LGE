@@ -14,8 +14,4 @@
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
 	</ItemGroup>
-
-	<ItemGroup>
-		<ProjectReference Include="..\..\Application\DataVault.Application\DataVault.Application.csproj" />
-	</ItemGroup>
 </Project>

@@ -7,7 +7,16 @@ public partial class App : Application
 	public App()
 	{
 		InitializeComponent();
+		UserAppTheme = AppTheme.Light;
+	}
 
-		MainPage = new AppShell();
+	protected override Window CreateWindow(IActivationState activationState)
+	{
+		var window = base.CreateWindow(activationState);
+
+		window.MinimumHeight = 650;
+		window.MinimumWidth = 850;
+
+		return window;
 	}
 }

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    x:Class="DataVault.Client.Views.LoginPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:mdc="clr-namespace:Material.Components.Maui;assembly=Material.Components.Maui"
+    xmlns:skia="clr-namespace:SkiaSharp.Extended.UI.Controls;assembly=SkiaSharp.Extended.UI"
+    xmlns:viewModels="clr-namespace:DataVault.Client.ViewModels;assembly=DataVault.Client"
+    x:Name="Login"
+    Shell.NavBarIsVisible="False">
+
+    <ScrollView>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="1">
+                <skia:SKLottieView
+                    HeightRequest="500"
+                    HorizontalOptions="Start"
+                    RepeatCount="-1"
+                    Source="data-management.json"
+                    VerticalOptions="Center"
+                    WidthRequest="500" />
+            </Grid>
+
+            <Grid Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.25*" />
+                    <ColumnDefinition Width="0.5*" />
+                    <ColumnDefinition Width="0.25*" />
+                </Grid.ColumnDefinitions>
+
+                <StackLayout
+                    Grid.Column="1"
+                    Spacing="10"
+                    VerticalOptions="Center">
+                    <Image
+                        HeightRequest="150"
+                        Source="datavaultlogo.jpg"
+                        WidthRequest="150" />
+
+                    <mdc:Label
+                        FontSize="28"
+                        ForegroundColor="Gray"
+                        HorizontalTextAlignment="Center"
+                        Text="Welcome to DataVault!" />
+
+                    <mdc:Label
+                        FontSize="18"
+                        ForegroundColor="Gray"
+                        HorizontalTextAlignment="Center"
+                        Text="Login to your account" />
+
+                    <mdc:TextField
+                        HorizontalOptions="FillAndExpand"
+                        Icon="User"
+                        LabelText="Email address"
+                        Style="{DynamicResource FilledTextFieldStyle}"
+                        SupportingText="Enter email address"
+                        Text="{Binding Email, Mode=TwoWay}" />
+
+                    <mdc:TextField
+                        HorizontalOptions="FillAndExpand"
+                        Icon="Password"
+                        LabelText="Password"
+                        Style="{DynamicResource FilledTextFieldStyle}"
+                        SupportingText="Enter password"
+                        Text="{Binding Password, Mode=TwoWay}" />
+
+                    <mdc:CheckBox HorizontalOptions="Start" Text="{Binding RememberMe, Mode=OneWay}" />
+
+                    <mdc:Button
+                        Command="{Binding SignInCommand}"
+                        HorizontalOptions="FillAndExpand"
+                        IsEnabled="{Binding CanSignin}"
+                        Style="{DynamicResource FilledTonalButtonStyle}"
+                        Text="Sign In" />
+
+                    <StackLayout
+                        HorizontalOptions="Center"
+                        Orientation="Horizontal"
+                        Spacing="5">
+                        <mdc:Label ForegroundColor="Gray" Text="Don't have account?" />
+                        <mdc:Label ForegroundColor="#50b3f2" Text="Sign Up here" />
+                    </StackLayout>
+
+                    <mdc:Label
+                        ForegroundColor="#50b3f2"
+                        HorizontalOptions="Center"
+                        Text="Forget Password?" />
+                </StackLayout>
+            </Grid>
+        </Grid>
+    </ScrollView>
+</ContentPage>
